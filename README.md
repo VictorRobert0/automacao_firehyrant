@@ -14,10 +14,8 @@ Este projeto tem como objetivo criar uma automação que permite aos usuários i
 
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
-- [Uso](#uso)
 - [Estrutura do Código](#estrutura-do-código)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Pré-requisitos
 
@@ -36,39 +34,40 @@ Siga estas etapas para configurar o ambiente:
    git clone https://github.com/usuario/nome-do-repositorio.git
    cd nome-do-repositorio
 Crie um ambiente virtual:
+```
+bash
+- Copiar código
+- python -m venv venv
+- Ative o ambiente virtual:
+```
+# No Windows:
+```bash
+- Copiar código
+- venv\Scripts\activate
 
-bash
-Copiar código
-python -m venv venv
-Ative o ambiente virtual:
+```
+# No macOS/Linux:
+```
+- bash
+- Copiar código
+- source venv/bin/activate
+  ```
+# Instale as dependências:
+ ```
+- pip install -r requirements.txt
 
-No Windows:
-bash
-Copiar código
-venv\Scripts\activate
-No macOS/Linux:
-bash
-Copiar código
-source venv/bin/activate
-Instale as dependências:
-
-bash
-Copiar código
-pip install -r requirements.txt
-Uso
-Descreva como usar o projeto, incluindo exemplos de chamadas de API, comandos de terminal ou interações com o Slack.
-
-bash
-Copiar código
+ ```
 # Para iniciar o servidor Flask
-python seu_script.py
-Estrutura do Código
-Explique brevemente a estrutura do código, como os principais arquivos e diretórios, e suas funções:
+ ```
+- python app.py
 
-graphql
-Copiar código
+ ```
+
+# Estrutura do código
+
+
 .
-├── seu_script.py          # Script principal do Flask
-├── slack-button.json      # Arquivo JSON para o botão do Slack
-├── requirements.txt       # Dependências do projeto
-└── README.md              # Este arquivo
+- ├── app.py          # Script principal do Flask
+- ├── slack-button.json      # Arquivo JSON para o botão do Slack
+- ├── requirements.txt       # Dependências do projeto
+- └── README.md              # Este arquivo
