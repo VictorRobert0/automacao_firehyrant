@@ -1,53 +1,50 @@
-#Automação FireHydrant
-
-"""
-Automação com Opsgenie & FireHydrant 
 
 
-Inicio do projeto na data 25/09/2025 - Call com Chacon e Cesar
+from flask import Flask, request, jsonify
+import requests
 
+app = Flask(__name__)
 
+# URL do FireHydrant API
+FIREHYDRANT_API_URL = 'https://api.firehydrant.io/v1/incidents'
+FIREHYDRANT_API_KEY = 'YOUR_FIREHYDRANT_API_KEY'  # Colocar chave da API do FireHydrant
 
-PROJETO - "A ideia é quando tiver um incidente é criar um canal canal/comunicação e pessoas envolvidas de forma automática" 
+@app.route('/slack-webhook', methods=['POST'])
+def slack_webhook():
+    # Obter os dados da solicitação do Slack
+    data = request.json
+    action = data.get('actions', [{}])[0].get('value')
 
-Chacon - "Opsgenie cria o incidente no JIRA de forma automática"
+    if action == 'create_incident':
+        # Lógica para criar um incidente no FireHydrant
+        try:
+            # Exemplo de dados para o incidente
+            incident_data = {
+                "name": "Incidente de Teste",
+                "description": "Este é um incidente criado via Slack.",
+                "severity": "high"
+            }
 
+            headers = {
+                'Authorization': f'Bearer {FIREHYDRANT_API_KEY}',
+                'Content-Type': 'application/json'
+            }
 
-Firehydrant esta integrado com Jira, Zoom, Slack e Opsgenie | Opsgenie é o final de cada alerta, ele so faz o meio termo, o fireHydrant é um passo após o Opsgenie
+            response = requests.post(FIREHYDRANT_API_URL, json=incident_data, headers=headers)
+            response.raise_for_status()  # Lança um erro se a requisição falhar
 
+            incident_id = response.json().get('id')
 
-O que o firehydrant faz de diferente ? --> 
+            # Enviar uma mensagem de volta para o Slack
+            return jsonify({
+                "text": f"Incidente criado com sucesso: {incident_id}"
+            })
 
+        except requests.exceptions.RequestException as e:
+            print(f"Erro ao criar incidente: {e}")
+            return jsonify({"text": "Erro ao criar o incidente."}), 500
 
-Procurar se é possível criar um botão de integração no Slack onde faz a função de abrir call com o FireHydrant 
+    return jsonify({"text": "Ação não reconhecida."}), 400
 
-
-"OPsgenie Alerts" ele que é o runbook principal 
-
-
-
-O ideal seria clonar um Runbook, colocar com Owner team o time de Infosec --> 
-
-
-Olhar a parte de estrutura de decisão por palavras, o firehydrant esta integrado dentro do Slack! 
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-É possível escolher palavras chave e criticidade para iniciar o alerta, também é possível enviar um webhook com POST ( API ) 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-Enviar o dados do opsgenie para o Hydrant-> Depois gerenciar e escolher as tomadas de decisão -> Runbook contém as "funções" de decisão.
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				O BOTÃO NO OPSGENIE CONTENDO A FUNÇÃO É O FOCO
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-Ler a documentação por completa com FireHydrant e olhar as opções para integração e funções.
-
-
-"""
+if __name__ == '__main__':
+    app.run(port=3000)
