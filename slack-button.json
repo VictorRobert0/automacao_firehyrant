@@ -1,0 +1,19 @@
+{
+    "text": "Clique no botão para iniciar a chamada no Zoom:",
+    "blocks": [
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Iniciar Chamada no Zoom"
+                    },
+                    "value": "start_zoom_call",
+                    "action_id": "start_zoom_call_button"
+                }
+            ]
+        }
+    ]
+}
