@@ -4,7 +4,7 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "Teste para automação do *FireHydrant*"
+				"text": "Teste para automaçao do *FireHydrant*"
 			}
 		},
 		{
@@ -14,13 +14,9 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "Toda vez que esta automação cair, aperta no botão para sua ocasião. O mesmo irá iniciar a ação escolhida automaticamente"
-			},
-			"accessory": {
-				"type": "image",
-				"image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/c7ed05m9lC2EmA3Aruue7A/o.jpg",
-				"alt_text": "alt text for image"
+				"text": "Toda vez que esta automaçao cair, clique no botao para sua ocasiao. O mesmo ira iniciar a açao escolhida automaticamente"
 			}
+			
 		},
 		{
 			"type": "divider"

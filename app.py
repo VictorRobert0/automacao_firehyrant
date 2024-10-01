@@ -65,7 +65,7 @@ def send_button():
     with open('slack-button.json') as f:
         button_payload = json.load(f)
 
-    slack_webhook_url = 'https://dock-community.slack.com/archives/C035UGF3S69/p1727797748015179'
+    slack_webhook_url = 'https://hooks.slack.com/services/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'
     response = requests.post(slack_webhook_url, json=button_payload)
 
     if response.status_code == 200:
@@ -74,5 +74,5 @@ def send_button():
         return jsonify({"text": "Erro ao enviar o botão."}), 500
 
 if __name__ == '__main__':
-    app.run(port=3000)
+    app.run(port=3000, debug= True)
 
