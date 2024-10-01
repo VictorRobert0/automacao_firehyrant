@@ -3,6 +3,29 @@
 """
 	Automação com Opsgenie & FireHydrant 
 
+	 Criar sala no Slack (Sala do incidente) | 2 salas sendo tecnica e executiva 
+
+	 Incident no JIRA
+
+	 Sala no zoom 
+
+	 Criação da pasta do incident no drive 
+
+	
+
+
+	canal de comunicados incidentes (Canal informativo)
+
+
+
+
+
+
+
+
+
+
+
 
 	Inicio do projeto na data 25/09/2025 - Call com Chacon e Cesar
 
