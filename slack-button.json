@@ -8,7 +8,7 @@
                     "type": "button",
                     "text": {
                         "type": "plain_text",
-                        "text": "Iniciar Chamada no Zoom"
+                        "text": "Iniciar sala de incidentes"
                     },
                     "value": "start_zoom_call",
                     "action_id": "start_zoom_call_button"

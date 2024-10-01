@@ -65,7 +65,7 @@ def send_button():
     with open('slack-button.json') as f:
         button_payload = json.load(f)
 
-    slack_webhook_url = 'YOUR_SLACK_WEBHOOK_URL'
+    slack_webhook_url = 'https://hooks.slack.com/services/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'
     response = requests.post(slack_webhook_url, json=button_payload)
 
     if response.status_code == 200:
