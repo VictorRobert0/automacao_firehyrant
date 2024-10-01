@@ -1,19 +1,71 @@
 {
-    "text": "Clique no botão para iniciar a chamada no Zoom:",
-    "blocks": [
-        {
-            "type": "actions",
-            "elements": [
-                {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Iniciar sala de incidentes"
-                    },
-                    "value": "start_zoom_call",
-                    "action_id": "start_zoom_call_button"
-                }
-            ]
-        }
-    ]
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Teste para automação do *FireHydrant*"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Toda vez que esta automação cair, aperta no botão para sua ocasião. O mesmo irá iniciar a ação escolhida automaticamente"
+			},
+			"accessory": {
+				"type": "image",
+				"image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/c7ed05m9lC2EmA3Aruue7A/o.jpg",
+				"alt_text": "alt text for image"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Iniciar call Zoom",
+						"emoji": true
+					},
+					"value": "Iniciando call no zoom.."
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Sala incidente",
+						"emoji": true
+					},
+					"value": "Sala incidente",
+					"url": "https://google.com"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Sala executiva",
+						"emoji": true
+					},
+					"value": "Sala executiva",
+					"url": "https://google.com"
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "This is a plain text section block.",
+				"emoji": true
+			}
+		}
+	]
 }
